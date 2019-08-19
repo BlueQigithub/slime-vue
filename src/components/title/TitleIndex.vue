@@ -17,7 +17,6 @@ export default {
   height: 40px;
   line-height: 40px;
   background: pink;
-  display: flex;
   i{
       font-size: 20px;
       padding: 0 20px 0 10px;
@@ -28,17 +27,17 @@ export default {
       border-bottom: 1px solid #cccccc;
       padding: 8px 0;
       background: pink;
-      width:70%;
   }
   .search{
       float:right;
-      height:30px;
-      line-height: 30px;
+      height:25px;
+      line-height: 25px;
       padding: 0 15px;
       margin-right: 10px;
-      margin-top:5px;
+      margin-top:8px;
       background: #c1c1c1;
       font-size: 12px;
+      border-radius: 10px;
      
   }
 }

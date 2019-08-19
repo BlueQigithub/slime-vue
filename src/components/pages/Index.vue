@@ -1,6 +1,8 @@
 <template>
     <div>
       <title-index></title-index>
+      <!-- banner区域 -->
+      <div></div>
     </div>
 </template>
 <script>
