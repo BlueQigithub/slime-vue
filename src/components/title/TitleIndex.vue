@@ -1,44 +1,46 @@
 <template>
-    <div>
-        <div class="titleIndex clearfix">
-            <i class="iconfont icon-ditu"></i>
-            <input type="text" placeholder="请输入查询内容">
-            <span class="search">查找</span>
-        </div>
+  <div>
+    <div class="titleIndex clearfix">
+      <i class="iconfont icon-ditu"></i>
+      <input type="text" placeholder="请输入查询内容" />
+      <span class="search">查找</span>
     </div>
+  </div>
 </template>
 <script>
-export default {
-    
-}
+export default {};
 </script>
 <style scoped lang="less">
-.titleIndex{
-  height: 40px;
-  line-height: 40px;
+.titleIndex {
+  height: 2.5rem;
   background: pink;
-  i{
-      font-size: 20px;
-      padding: 0 20px 0 10px;
-      float: left;
+  position: relative;
+  i {
+    font-size: 20px;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.75rem;
   }
-  input{
-      border: none;
-      border-bottom: 1px solid #cccccc;
-      padding: 8px 0;
-      background: pink;
+  input {
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 70%;
+    padding: 0.5rem 0;
+    background: pink;
+    margin: 0.25rem 0 0 2rem;
   }
-  .search{
-      float:right;
-      height:25px;
-      line-height: 25px;
-      padding: 0 15px;
-      margin-right: 10px;
-      margin-top:8px;
-      background: #c1c1c1;
-      font-size: 12px;
-      border-radius: 10px;
-     
+  .search {
+    position: absolute;
+    right: 0.125rem;
+    top: 0.125rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    padding: 0 15px;
+    margin: 10px 10px 0 10px;
+    background: #c1c1c1;
+    font-size: 12px;
+    border-radius: 20px;
   }
 }
 </style>
+
