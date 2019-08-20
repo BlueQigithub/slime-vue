@@ -4,11 +4,13 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+const webpack = require('webpack')
+const px2rem = require('postcss-px2rem')
+const postcss = require('postcss')
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
-
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -29,6 +31,15 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+// px自动转成rem配置
+ plugins: [
+    new webpack.LoaderOptionsPlugin({
+        // webpack 2.0之后， 此配置不能直接写在自定义配置项中， 必须写在此处
+        vue: {
+            postcss: [require('postcss-px2rem')({ remUnit: 75, propWhiteList: [] })]
+        },
+    })
+],
   module: {
     rules: [
       {
@@ -65,10 +76,15 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      {
+      { 
         test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader",
-        }
+        loader: "style-loader!css-loader!less-loader!postcss-loader ",
+    　　 options: { sourceMap: true }
+      }
+    //   {
+    //     test: /\.(css|less|scss)(\?.*)?$/,
+    //     loader: 'style-loader!css-loader!sass-loader!less-loader!postcss-loader'
+    //   }
     ]
   },
   node: {

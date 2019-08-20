@@ -1,9 +1,9 @@
 * {
     padding: 0;
     margin: 0;
-}
+} 
 
-html, body {
+ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -25,7 +25,13 @@ a,button,input,select,img,label,li,div {
     -webkit-tap-highlight-color: transparent;
     outline: medium none;
 }
-
+/*去除input获焦的默认样式 */
+ input{
+    outline:none
+}
+img{
+    width:100%;
+}
 .clearfix:after{
     content: ".";
     display: block;
@@ -39,4 +45,4 @@ a,button,input,select,img,label,li,div {
 
 .fr {
     float: right;
-}
+}  
