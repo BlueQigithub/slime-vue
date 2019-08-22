@@ -2,38 +2,38 @@
     <div>
         <title-index></title-index>
         <!-- banner区域 -->
-        <div class="swiper-container">
-            <swiper :options="swiperOption" ref="mySwiper">
-            <!-- slides -->
-            <swiper-slide v-for="(item,index) in bannerData" :key="index">
-                <img :src=item.image>
-            </swiper-slide>
-            <!-- Optional controls -->
-            <div class="swiper-pagination "  slot="pagination"></div>
-            </swiper> 
-        </div>
+        <swiper class="swiper-container" :options="swiperOption" ref="mySwiper">
+        <!-- slides -->
+        <swiper-slide v-for="(item,index) in bannerData" :key="index">
+            <cmponent is="IndexSwiper" :itemDatas="item"></cmponent>
+        </swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination "  slot="pagination"></div>
+        </swiper> 
         <category-list :CategoryListData="CategoryListData" :advertesPicture="advertesPicture"></category-list>
+        <!-- 商品推荐 -->
+        <goods-recommend-list :recommendGoodsData="recommendGoodsData">
+            <slot name="recomTitle" class="recom-title"></slot>
+        </goods-recommend-list>
+        <!-- 底部导航 -->
+        <foot-nav></foot-nav>
     </div>
 </template>
 <script>
 import TitleIndex from "../components/title/TitleIndex"
+import IndexSwiper from '../components/indexSwiper/IndexSwiper'
 import CategoryList from '../components/list/CategoryList'
+import GoodsRecommendList from "../components/goods/GoodsRecommendList"
+import FootNav from '../components/footer/FootNav'
 import { swiper, swiperSlide } from 'vue-awesome-swiper' 
 export default {
     data(){
         return{
              swiperOption: {  
                 notNextTick: true,
-                //循环
                 loop:true,
                 //设定初始化时slide的索引
                 initialSlide:0,
-                //自动播放
-                // autoplay:true,
-                //滑动速度
-                speed:800,
-                //滑动方向
-                direction : 'horizontal',
                 //分页器设置         
                 pagination: {
                     el: '.swiper-pagination',
@@ -45,29 +45,35 @@ export default {
             //list导航数据
             CategoryListData:[],
             // 广告图片
-            advertesPicture:{}
+            advertesPicture:{},
+            //商品推荐
+            recommendGoodsData:[]
         }
     },
     computed: {  
         swiper() {  
           return this.$refs.mySwiper.swiper;  
-        }  
+        },
     }, 
     mounted(){
       // 请问数据
       this.http.get('/index').then(res=>{
           let indexDatas = res.data.data;
-          console.log(res);
+          console.log(indexDatas);
           this.bannerData = indexDatas.slides;
           this.CategoryListData = indexDatas.category;
-          this.advertesPicture = indexDatas.advertesPicture
+          this.advertesPicture = indexDatas.advertesPicture;
+          this.recommendGoodsData = indexDatas.recommend
       })
     },
     components:{
         TitleIndex,
+        IndexSwiper,
         swiper,  
         swiperSlide,
-        CategoryList 
+        CategoryList,
+        GoodsRecommendList,
+        FootNav
     }
 }
 </script>
@@ -78,6 +84,15 @@ export default {
     img{
         width: 100%;
     }
+   .swiper-container-horizontal>.swiper-pagination-bullets{
+       .swiper-pagination-bullet .swiper-pagination-bullet-active{
+           background: pink
+       }
+   }
+   .recom-title{
+       line-height: 120px;
+       font-size: 70px;
+   }  
  
 }   
 </style>

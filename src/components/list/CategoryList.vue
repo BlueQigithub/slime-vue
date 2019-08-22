@@ -26,7 +26,7 @@ export default {
             type:Object,
             default:""
         }
-    }
+    },
 }
 </script>
 <style lang="less" scoped>
