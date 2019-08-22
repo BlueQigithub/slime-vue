@@ -1,22 +1,14 @@
 <template>
     <div>
         <div class="list-index">
-            <div class="listContent">
-                <img src="../../assets/images/list.png" alt="">
-                <p>课程推荐</p>
+            <div class="listContent" v-for="(item ,index) in CategoryListData" :key="index">
+                <img :src=item.image alt="">
+                <p>{{item.mallCategoryName}}</p>
             </div>
-            <div class="listContent">
-                <img src="../../assets/images/list.png" alt="">
-                <p>课程推荐</p>
-            </div>
-            <div class="listContent">
-                <img src="../../assets/images/list.png" alt="">
-                <p>课程推荐</p>
-            </div>
-            <div class="listContent">
-                <img src="../../assets/images/list.png" alt="">
-                <p>课程推荐</p>
-            </div>
+        </div>
+        <!-- 广告图片 -->
+        <div class="advertesPicture">
+            <img :src=advertesPicture.PICTURE_ADDRESS alt="">
         </div>
     </div>
 </template>
@@ -24,6 +16,16 @@
 export default {
     data(){
         return{}
+    },
+    props:{
+        CategoryListData:{
+            type:Array,
+            default:""
+        },
+        advertesPicture:{
+            type:Object,
+            default:""
+        }
     }
 }
 </script>
@@ -48,5 +50,8 @@ export default {
             margin-top:20px;
         }
     }
+}
+.advertesPicture{
+    background: #ffffff;
 }
 </style>

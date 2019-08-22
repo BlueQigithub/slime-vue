@@ -12,7 +12,7 @@
             <div class="swiper-pagination "  slot="pagination"></div>
             </swiper> 
         </div>
-        <list-index></list-index>
+        <category-list :CategoryListData="CategoryListData" :advertesPicture="advertesPicture"></category-list>
     </div>
 </template>
 <script>
@@ -43,7 +43,9 @@ export default {
             //轮播图数据
             bannerData:[],
             //list导航数据
-            CategoryListData:[]
+            CategoryListData:[],
+            // 广告图片
+            advertesPicture:{}
         }
     },
     computed: {  
@@ -58,6 +60,7 @@ export default {
           console.log(res);
           this.bannerData = indexDatas.slides;
           this.CategoryListData = indexDatas.category;
+          this.advertesPicture = indexDatas.advertesPicture
       })
     },
     components:{
