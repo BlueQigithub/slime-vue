@@ -12,6 +12,7 @@
 <script>
 // import GoodsSwiper from '../goods/GoodsSwiper'
 export default {
+    name:"GoodsRecommendList",
     data(){
         return{
                swiperOption: {  

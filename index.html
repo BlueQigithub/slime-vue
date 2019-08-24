@@ -6,14 +6,26 @@
     <!-- icon图标 -->
     <link
       rel="stylesheet"
-      href="//at.alicdn.com/t/font_1359146_evq9bx0i9fd.css"
+      href="//at.alicdn.com/t/font_1359146_jx6d04koyl.css"
     />
+    <!-- cdn引入样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.0/lib/index.css">
     <title>text1</title>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <!-- 引入组件 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vant@2.0/lib/vant.min.js"></script>
+  <script>
+    var Vue = window.Vue;
+    var vant = window.vant; 
+    // 注册 Lazyload 组件
+    Vue.use(vant.Lazyload);
+    </script>
+
   <!-- 移动端得适配 -->
   <script>
     //获取手机屏幕的宽度
@@ -25,4 +37,5 @@
     //设置根字体大小
     htmlDom.style.fontSize = htmlWidth / 20 + 'px';
   </script>
+  
 </html>

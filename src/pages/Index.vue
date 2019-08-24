@@ -1,6 +1,5 @@
 <template>
     <div>
-        <title-index></title-index>
         <!-- banner区域 -->
         <swiper class="swiper-container" :options="swiperOption" ref="mySwiper">
         <!-- slides -->
@@ -15,18 +14,16 @@
         <goods-recommend-list :recommendGoodsData="recommendGoodsData">
             <slot name="recomTitle" class="recom-title"></slot>
         </goods-recommend-list>
-        <!-- 底部导航 -->
-        <foot-nav></foot-nav>
     </div>
 </template>
 <script>
-import TitleIndex from "../components/title/TitleIndex"
 import IndexSwiper from '../components/indexSwiper/IndexSwiper'
 import CategoryList from '../components/list/CategoryList'
 import GoodsRecommendList from "../components/goods/GoodsRecommendList"
-import FootNav from '../components/footer/FootNav'
+// import FootNav from '../components/footer/FootNav'
 import { swiper, swiperSlide } from 'vue-awesome-swiper' 
 export default {
+    name:'Index',
     data(){
         return{
              swiperOption: {  
@@ -67,13 +64,11 @@ export default {
       })
     },
     components:{
-        TitleIndex,
         IndexSwiper,
         swiper,  
         swiperSlide,
         CategoryList,
         GoodsRecommendList,
-        FootNav
     }
 }
 </script>

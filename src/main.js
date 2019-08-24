@@ -13,6 +13,9 @@ import 'swiper/dist/css/swiper.min.css'
 Vue.use(VueAwesomeSwiper)
 
 
+import { Checkbox, CheckboxGroup } from 'vant';
+import 'vant/lib/button/style';
+Vue.use(Checkbox).use(CheckboxGroup);
 
 Vue.config.productionTip = false
 Vue.prototype.http = http 
@@ -24,4 +27,5 @@ new Vue({
     store,
     components: { App },
     template: '<App/>'
+    
 })

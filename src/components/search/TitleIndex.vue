@@ -18,7 +18,8 @@ export default {
   i {
     position: absolute;
     left: 50px;
-    top: 70px;
+    top: 50px;
+    font-size: 80px;
   }
   input {
     border: none;

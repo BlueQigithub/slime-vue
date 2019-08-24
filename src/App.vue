@@ -1,22 +1,29 @@
 <template>
   <div id="app">
-      <!-- 视口 -->
-    <router-view/>
+    <!-- 头部 -->
+    <title-index></title-index>
+    <!-- 视口 -->
+    <router-view></router-view>
+    <!-- 底部导航 -->
+    <FootTabGloble></FootTabGloble>
   </div>
 </template>
 
 <script>
+import TitleIndex from "./components/search/TitleIndex"
+import FootTabGloble from './components/tab/FootTabGloble'
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+      return{
+      }
+  },
+  components: {
+    TitleIndex,
+    FootTabGloble
+  }
 }
 </script>
 
 <style>
-body,html,#app{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background:#f1f1f1f1;
-}
 </style>
